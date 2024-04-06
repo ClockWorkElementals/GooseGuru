@@ -19,11 +19,13 @@ export function Form(props: FormProps): React.ReactElement {
     <form id={props.formId} onSubmit={handleSubmit(props.onSubmit)}>
       <Stack spacing={2}>
         {props.questions.map((field) => {
-          const index = props.defaultValues.findIndex(
-            (value) => value.fieldId === field.id,
+          return (
+            <CustomFieldInput
+              name={"userId"}
+              control={control}
+              details={field}
+            />
           );
-
-          return <CustomFieldInput control={control} details={field} />;
         })}
       </Stack>
     </form>
